@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Request API access — HMCTS API Marketplace</title>
+<meta name="description" content="Submit a request to access an HMCTS API.">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div class="top-bar">
+  <div class="wrap">
+    <a class="crest" href="index.html">
+      <svg class="mark" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<path d="M16 2L28 7V15C28 22.5 22.8 27.8 16 30C9.2 27.8 4 22.5 4 15V7L16 2Z" stroke="#d9b25c" stroke-width="1.6" fill="none"/>
+<path d="M16 8V22M11 12H21M11 18H21" stroke="#fff" stroke-width="1.4"/>
+</svg>
+      <span>HM Courts &amp; Tribunals Service</span>
+    </a>
+    <div class="top-bar-actions">
+      <a href="api-catalogue.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg> Search</a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+    </div>
+  </div>
+</div>
+<header class="site-header">
+  <div class="wrap">
+    <a class="site-title" href="index.html">API Marketplace</a>
+    <nav class="primary-nav" id="primary-nav" aria-label="Primary">
+      <ul>
+        <li><a href="sign-in.html">Sign in</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<div class="phase-banner">
+  <div class="wrap">
+    <span class="phase-tag">Alpha</span>
+    <span>This is a new service &mdash; <a href="request-new-api.html">give your feedback</a> to help us improve it.</span>
+  </div>
+</div>
+<div class="breadcrumbs"><div class="wrap"><ol><li><a href="index.html">Home</a></li><li><a href="api-catalogue.html">API Catalogue</a></li><li>Request access</li></ol></div></div>
+
+<main id="main-content">
+
+<section class="block">
+  <div class="wrap">
+    <h1>Request API access</h1>
+    <p class="lede" style="color:var(--grey-dark);font-size:1.1rem;max-width:60ch;">Submit a request to access an HMCTS API. The API owner will review within 2 working days.</p>
+
+    <form data-mock-submit="request-confirmation" novalidate>
+
+      <div class="error-summary">
+        <h2>There is a problem</h2>
+        <p>Please fill in all required fields and confirm the declaration before submitting.</p>
+      </div>
+
+      <div class="form-section">
+        <h2>Your details</h2>
+        <div class="field">
+          <label for="full-name">Full name</label>
+          <input type="text" id="full-name" name="full-name" required>
+        </div>
+        <div class="field">
+          <label for="org">Organisation</label>
+          <span class="hint">For example: HMCTS DTS, Ministry of Justice Digital</span>
+          <input type="text" id="org" name="org" required>
+        </div>
+        <div class="field">
+          <label for="email">Work email address</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="field">
+          <label for="job-title">Job title</label>
+          <span class="hint">For example: Senior Developer, Technical Architect</span>
+          <input type="text" id="job-title" name="job-title" required>
+        </div>
+        <div class="field">
+          <label for="phone">Phone number (optional)</label>
+          <span class="hint">In case we need to contact you urgently about your request</span>
+          <input type="tel" id="phone" name="phone">
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h2>API details</h2>
+        <div class="field">
+          <label for="api-select">Which API do you need access to?</label>
+          <span class="hint">Select from the live catalogue</span>
+          <select id="api-select" name="api-select" required>
+            <option value="">Select an API&hellip;</option>
+            <option>Crime Prosecution Case Details API</option>
+            <option>Hearing Results API</option>
+            <option>Court Listings and Scheduling API</option>
+            <option>Court and Tribunal Reference Data API</option>
+            <option>Fees and Financial Transactions API</option>
+            <option>Tribunal Case Administration API</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="environment">Environment</label>
+          <select id="environment" name="environment" required>
+            <option value="">Select&hellip;</option>
+            <option>Sandbox (development and testing)</option>
+            <option>Production</option>
+            <option>Both sandbox and production</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="volume">Expected call volume</label>
+          <select id="volume" name="volume" required>
+            <option value="">Select&hellip;</option>
+            <option>Low (under 1,000 calls per day)</option>
+            <option>Medium (1,000&ndash;100,000 per day)</option>
+            <option>High (over 100,000 per day)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h2>Your use case</h2>
+        <div class="field">
+          <label for="use-case">Describe what you are building and why you need this API</label>
+          <span class="hint">Include what data you need, how it will be used, and any relevant project name</span>
+          <textarea id="use-case" name="use-case" required></textarea>
+        </div>
+        <fieldset>
+          <legend>Can your system implement OAuth 2.0 with JWT bearer tokens?</legend>
+          <div class="radio-row">
+            <label><input type="radio" name="oauth" value="yes" required> Yes</label>
+            <label><input type="radio" name="oauth" value="no"> No &mdash; I need guidance</label>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="form-section declaration">
+        <h2>Declaration</h2>
+        <label><input type="checkbox" required> I confirm my use case is within the intended scope of this API and I am not requesting access speculatively</label>
+        <label><input type="checkbox" required> My system can implement OAuth 2.0 with JWT bearer tokens, or I have indicated I need guidance</label>
+        <label><input type="checkbox" required> A Data Sharing Agreement or Data Processing Agreement is in place or being arranged for APIs containing personal data</label>
+        <label><input type="checkbox" required> I have read and accept the <a href="data-governance.html">Data Governance Standards</a></label>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit request</button>
+      <a href="api-catalogue.html" class="btn btn-secondary" style="margin-left:10px;">Cancel and return to catalogue</a>
+    </form>
+
+    <div class="confirmation" id="request-confirmation">
+      <div class="banner">
+        <h1>Request submitted</h1>
+        <p>Your reference</p>
+        <p class="ref">AR-2025-001</p>
+        <p>The API owner will respond within 2 working days. Questions? <a href="mailto:Nagashankar.Ponnaganti@HMCTS.NET">Contact the marketplace team</a>.</p>
+        <a class="btn btn-primary" href="api-catalogue.html">Return to API Catalogue</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid footer-grid-2">
+      <div>
+        <h2>Legal</h2>
+        <ul>
+          <li><a href="#">Accessibility statement</a></li>
+          <li><a href="#">Cookies</a></li>
+          <li><a href="#">Privacy notice</a></li>
+          <li><a href="data-governance.html">Data governance</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Get in touch</h2>
+        <ul>
+          <li><a href="mailto:Nagashankar.Ponnaganti@HMCTS.NET">Contact the marketplace team</a></li>
+          <li><a href="request-new-api.html">Request a new API</a></li>
+          <li><a href="onboarding-guide.html">Onboarding guide</a></li>
+          <li><a href="publish-api.html">Publish an API</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; Crown copyright &mdash; MIT Licence</span>
+      <span>Built by <a href="https://www.gov.uk/hmcts">HMCTS Digital and Technology Solutions</a></span>
+    </div>
+  </div>
+</footer>
+<script src="assets/scripts.js"></script>
+
+</body>
+</html>
