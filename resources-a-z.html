@@ -15,7 +15,11 @@
       <img src="assets/hmcts-logo-black.png" alt="HM Courts &amp; Tribunals Service" class="logo-img">
     </a>
     <div class="top-bar-actions">
-      <a href="api-catalogue.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg> Search</a>
+      <form class="site-search" action="resources-a-z.html" method="get" role="search">
+        <label class="visually-hidden" for="site-search-input">Search</label>
+        <input type="search" id="site-search-input" name="q" placeholder="Search">
+        <button type="submit" aria-label="Search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></button>
+      </form>
       <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button>
     </div>
   </div>
@@ -43,13 +47,53 @@
 <section class="block" style="padding-bottom:0;">
   <div class="wrap">
     <h1>A to Z of developer resources</h1>
-    <p class="lede" style="color:var(--grey-dark);font-size:1.1rem;max-width:65ch;">Browse all developer resources on the HMCTS API Marketplace in one place.</p>
+    <p class="lede" style="color:var(--grey-dark);font-size:1.1rem;max-width:65ch;">Browse all developer resources on the HMCTS API Marketplace in one place, or search to find something specific.</p>
 
-    <div class="def-grid" style="margin-top:1.6em;">
-      <div class="def-item" style="border-left:3px solid var(--blue);"><h4>Getting started</h4><ul style="margin:0.4em 0 0;"><li><a href="onboarding-guide.html">Onboarding guide</a></li><li><a href="getting-started.html">Getting started with our APIs</a></li></ul></div><div class="def-item" style="border-left:3px solid var(--blue);"><h4>APIs and integration</h4><ul style="margin:0.4em 0 0;"><li><a href="api-catalogue.html">API and integration catalogue</a></li><li><a href="producer-standards.html">Producer standards</a></li><li><a href="producer-standards.html">Integration patterns</a></li></ul></div><div class="def-item" style="border-left:3px solid var(--blue);"><h4>Guidance and policy</h4><ul style="margin:0.4em 0 0;"><li><a href="consumer-guidance.html">Consumer guidance</a></li><li><a href="data-governance.html">Data governance standards</a></li></ul></div><div class="def-item" style="border-left:3px solid var(--blue);"><h4>Architecture</h4><ul style="margin:0.4em 0 0;"><li><a href="architecture.html">HMCTS architecture</a></li><li><a href="architecture-principles.html">HMCTS architecture principles</a></li><li><a href="our-capabilities.html">Our capabilities</a></li></ul></div><div class="def-item" style="border-left:3px solid var(--blue);"><h4>Reference</h4><ul style="margin:0.4em 0 0;"><li><a href="glossary.html">Glossary of developer terms</a></li><li><a href="case-studies.html">API platform case studies</a></li><li><a href="technology-introduction.html">Introduction to justice sector technology</a></li><li><a href="our-api-technologies.html">Our API technologies</a></li><li><a href="building-software.html">Building justice sector software</a></li></ul></div><div class="def-item" style="border-left:3px solid var(--blue);"><h4>Get involved</h4><ul style="margin:0.4em 0 0;"><li><a href="community.html">Developer community</a></li><li><a href="help-and-support.html">Help and support</a></li><li><a href="contact.html">Contact the marketplace team</a></li><li><a href="request-new-api.html">Request a new API</a></li></ul></div>
+    <form role="search" style="margin-bottom:0.4em;max-width:480px;" onsubmit="return false;">
+      <div class="search-row">
+        <label class="visually-hidden" for="az-search">Search developer resources</label>
+        <input type="text" id="az-search" placeholder="Search developer resources">
+        <button type="submit">Search</button>
+      </div>
+    </form>
+    <p id="az-results-meta" class="results-meta" style="margin-top:0;"></p>
+
+    <div class="def-grid" id="az-results" style="margin-top:1em;">
+      <div class="def-item az-section" style="border-left:3px solid var(--blue);"><h4>Getting started</h4><ul style="margin:0.4em 0 0;"><li data-search="onboarding guide"><a href="onboarding-guide.html">Onboarding guide</a></li><li data-search="getting started with our apis"><a href="getting-started.html">Getting started with our APIs</a></li></ul></div><div class="def-item az-section" style="border-left:3px solid var(--blue);"><h4>APIs and integration</h4><ul style="margin:0.4em 0 0;"><li data-search="api and integration catalogue"><a href="api-catalogue.html">API and integration catalogue</a></li><li data-search="producer standards"><a href="producer-standards.html">Producer standards</a></li><li data-search="integration patterns"><a href="producer-standards.html">Integration patterns</a></li></ul></div><div class="def-item az-section" style="border-left:3px solid var(--blue);"><h4>Guidance and policy</h4><ul style="margin:0.4em 0 0;"><li data-search="consumer guidance"><a href="consumer-guidance.html">Consumer guidance</a></li><li data-search="data governance standards"><a href="data-governance.html">Data governance standards</a></li></ul></div><div class="def-item az-section" style="border-left:3px solid var(--blue);"><h4>Architecture</h4><ul style="margin:0.4em 0 0;"><li data-search="hmcts architecture"><a href="architecture.html">HMCTS architecture</a></li><li data-search="hmcts architecture principles"><a href="architecture-principles.html">HMCTS architecture principles</a></li><li data-search="our capabilities"><a href="our-capabilities.html">Our capabilities</a></li></ul></div><div class="def-item az-section" style="border-left:3px solid var(--blue);"><h4>Reference</h4><ul style="margin:0.4em 0 0;"><li data-search="glossary of developer terms"><a href="glossary.html">Glossary of developer terms</a></li><li data-search="api platform case studies"><a href="case-studies.html">API platform case studies</a></li><li data-search="introduction to justice sector technology"><a href="technology-introduction.html">Introduction to justice sector technology</a></li><li data-search="our api technologies"><a href="our-api-technologies.html">Our API technologies</a></li><li data-search="building justice sector software"><a href="building-software.html">Building justice sector software</a></li></ul></div><div class="def-item az-section" style="border-left:3px solid var(--blue);"><h4>Get involved</h4><ul style="margin:0.4em 0 0;"><li data-search="developer community"><a href="community.html">Developer community</a></li><li data-search="help and support"><a href="help-and-support.html">Help and support</a></li><li data-search="contact the marketplace team"><a href="contact.html">Contact the marketplace team</a></li><li data-search="request a new api"><a href="request-new-api.html">Request a new API</a></li></ul></div>
     </div>
   </div>
 </section>
+
+<script>
+(function() {
+  var input = document.getElementById('az-search');
+  var meta = document.getElementById('az-results-meta');
+  var sections = document.querySelectorAll('.az-section');
+
+  function applySearch(query) {
+    query = query.trim().toLowerCase();
+    var totalShown = 0;
+    sections.forEach(function(section) {
+      var items = section.querySelectorAll('li');
+      var visibleInSection = 0;
+      items.forEach(function(li) {
+        var match = !query || li.getAttribute('data-search').indexOf(query) !== -1;
+        li.style.display = match ? '' : 'none';
+        if (match) { visibleInSection++; totalShown++; }
+      });
+      section.style.display = visibleInSection > 0 ? '' : 'none';
+    });
+    meta.textContent = query ? 'Showing ' + totalShown + ' result' + (totalShown === 1 ? '' : 's') + ' for \'' + query + '\'' : '';
+  }
+
+  var params = new URLSearchParams(window.location.search);
+  var initialQuery = params.get('q') || '';
+  if (initialQuery) { input.value = initialQuery; }
+  applySearch(initialQuery);
+
+  input.addEventListener('input', function() { applySearch(input.value); });
+})();
+</script>
 
 </main>
 

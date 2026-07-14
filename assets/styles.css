@@ -26,6 +26,7 @@
   --orange-tint: #FCD9C4;
   --rose: #b1005a;       /* Rose red — used for sensitive/warning content tags */
   --rose-tint: #ECC7D5;
+  --navy-tint-10: #E0E2ED; /* HMCTS navy 10% tint, from the brand guide's official tint palette */
   --red: #d4351c;        /* Reserved for true form errors/danger states */
   --yellow: #ffdd00;
   --border: #b1b4b6;
@@ -79,6 +80,11 @@ ul,ol{ margin: 0 0 1em; padding-left: 1.3em; }
 .crest .logo-img{ height:52px; width:auto; display:block; }
 .crest span{ font-size: 1.15rem; letter-spacing: 0.01em; white-space:nowrap; }
 .top-bar-actions{ display:flex; align-items:center; gap:18px; }
+.site-search{ display:flex; align-items:stretch; }
+.site-search input{ border:1px solid var(--border); border-right:none; padding:7px 10px; font-size:0.9rem; font-family:inherit; width:150px; background:#fff; color:var(--ink); }
+.site-search input:focus{ outline:2px solid var(--focus); outline-offset:0; }
+.site-search button{ background: var(--ink); color:#fff; border:1px solid var(--ink); padding:0 10px; cursor:pointer; display:flex; align-items:center; }
+.site-search button:hover{ background: var(--blue-dark); border-color: var(--blue-dark); }
 .top-bar-actions a{ color: var(--ink); font-size:0.9rem; font-weight:600; text-decoration:none; display:inline-flex; align-items:center; gap:6px; }
 .top-bar-actions a:hover{ text-decoration:underline; }
 .top-bar-actions .nav-toggle{ background:none; border:1px solid var(--border); color: var(--ink); padding:6px 12px; font-weight:600; font-size:0.9rem; cursor:pointer; display:none; }
@@ -359,10 +365,24 @@ fieldset legend{ font-weight:700; margin-bottom:8px; padding:0; }
 .confirmation .ref{ font-size:1.6rem; font-weight:700; color: var(--green-dark); }
 form.hidden-after-submit{ display:none; }
 
-/* Centered single-column auth layout (sign-in / register) */
-.centered-auth{ background: var(--surface); min-height: 70vh; padding: 56px 0 64px; }
-.centered-auth-inner{ max-width: 480px; margin: 0 auto; padding: 0 20px; }
-.centered-auth h1{ font-size: 2.2rem; margin-bottom: 0.7em; }
+/* Split-screen auth layout (sign-in / register) */
+.auth-logo-bar{ background:#fff; border-bottom:1px solid var(--border-light); padding:16px 0; }
+.split-auth{ display:grid; grid-template-columns: 1fr 1fr; min-height:calc(100vh - 68px); }
+.split-auth-brand{ background: var(--navy-tint-10); padding:56px; display:flex; flex-direction:column; justify-content:center; border-right: 1px solid var(--border-light); }
+.split-auth-brand h1{ font-size:2rem; color: var(--ink); max-width:16ch; margin-bottom:0.5em; }
+.split-auth-brand p{ color: var(--grey-dark); max-width:36ch; font-size:1.05rem; }
+.auth-benefits{ list-style:none; margin:0.6em 0 0; padding:0; max-width:34ch; }
+.auth-benefits li{ display:flex; align-items:center; gap:12px; padding:8px 0; font-weight:600; color: var(--ink); font-size:0.98rem; }
+.auth-benefit-icon{ flex:none; width:26px; height:26px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:700; }
+.split-auth-form{ background:#fff; display:flex; align-items:center; justify-content:center; padding:56px 32px; }
+.split-auth-form-inner{ width:100%; max-width:420px; }
+.split-auth-form-inner h1{ font-size:2rem; margin-bottom:0.3em; }
+.split-auth-form-inner .accent-bar{ width:56px; height:5px; background: var(--chip, var(--green)); margin-bottom:1.4em; }
+.split-auth-form-inner .field input[type=email],
+.split-auth-form-inner .field input[type=password],
+.split-auth-form-inner .field input[type=text]{ border-width:2px; padding:14px 16px; font-size:1.05rem; }
+.split-auth-form-inner .field input:focus{ outline:3px solid var(--focus); outline-offset:0; box-shadow: inset 0 -2px 0 var(--ink); }
+.split-auth-form-inner .btn{ font-size:1.1rem; padding:15px 20px; }
 .auth-callout{ margin-bottom: 1.8em; }
 .auth-callout-tab{ display:inline-block; background: var(--gold); color: var(--ink); font-weight:700; font-size:0.95rem; padding: 8px 16px; }
 .auth-callout-body{ background: var(--gold-tint); border: 1px solid var(--gold); border-top:none; padding: 16px 18px; }
@@ -461,6 +481,10 @@ footer.site-footer{ background: var(--ink); color:#d7d5d3; padding: 48px 0 30px;
   .community-banner{ grid-template-columns:1fr; }
   .community-tables{ grid-template-columns:1fr; }
   .doc-layout{ grid-template-columns:1fr; }
+  .split-auth{ grid-template-columns:1fr; }
+  .split-auth-brand{ padding:40px 24px; border-right:none; border-bottom:1px solid var(--border-light); }
+  .split-auth-form{ padding:40px 24px; }
+  .site-search input{ width:90px; }
   nav.primary-nav ul{ display:none; }
   nav.primary-nav.open ul{ display:flex; flex-direction:column; width:100%; }
   .nav-toggle{ display:block; background:none; border:1px solid var(--border); padding:8px 12px; font-weight:700; cursor:pointer; }
