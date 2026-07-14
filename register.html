@@ -10,76 +10,78 @@
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
-<main id="main-content" class="split-auth">
-  <div class="split-auth-brand">
-    <a class="crest" href="index.html"><span class="logo-rule" aria-hidden="true"></span><!-- Insert official HMCTS crest artwork here once the licensed logo file is available --><span>HMCTS API Marketplace</span></a>
-    <h1>Join the HMCTS developer community</h1>
-    <p>Create an account to request API access, publish your own APIs, and take part in the developer community.</p>
+<div class="top-bar">
+  <div class="wrap">
+    <a class="crest" href="index.html">
+      <img src="assets/hmcts-logo-black.png" alt="HM Courts &amp; Tribunals Service" class="logo-img">
+    </a>
   </div>
+</div>
 
-  <div class="split-auth-form">
-    <div class="split-auth-form-inner">
-      <p><a href="sign-in.html">&lsaquo; Back to sign in or create a developer account</a></p>
+<main id="main-content" class="centered-auth">
+  <div class="centered-auth-inner">
 
-      <h2>Create an account</h2>
-      <p style="color:var(--grey-dark);font-size:0.98rem;">You need to provide your details to create an account. For more information on why we collect your information, see our <a href="#">privacy policy</a>.</p>
+    <p><a href="sign-in.html">&lsaquo; Back to sign in or create a developer account</a></p>
 
-      <form data-mock-submit="register-confirmation" novalidate>
-        <div class="error-summary"><h2>There is a problem</h2><p>Please fill in all required fields.</p></div>
+    <h1>Create an account</h1>
+    <p style="color:var(--grey-dark);font-size:1.02rem;">You need to provide your details to create an account. For more information on why we collect your information, see our <a href="#">privacy policy</a>.</p>
 
-        <div class="field">
-          <label for="reg-first">First name</label>
-          <input type="text" id="reg-first" required>
+    <form data-mock-submit="register-confirmation" novalidate>
+      <div class="error-summary"><h2>There is a problem</h2><p>Please fill in all required fields.</p></div>
+
+      <div class="field">
+        <label for="reg-first">First name</label>
+        <input type="text" id="reg-first" required>
+      </div>
+
+      <div class="field">
+        <label for="reg-last">Last name</label>
+        <input type="text" id="reg-last" required>
+      </div>
+
+      <div class="field">
+        <label for="reg-email">Email address</label>
+        <input type="email" id="reg-email" required>
+      </div>
+
+      <div class="field">
+        <label for="reg-org">Organisation or team</label>
+        <span class="hint">For example: HMCTS DTS, Ministry of Justice Digital</span>
+        <input type="text" id="reg-org" required>
+      </div>
+
+      <fieldset>
+        <legend>I am registering as&hellip;</legend>
+        <div class="role-pick">
+          <label><input type="radio" name="role" value="consumer" required><span><span class="role-emoji">&#128105;&#8205;&#128187;</span>Consumer<br><small style="font-weight:400;color:var(--grey-dark);">Find and use existing APIs</small></span></label>
+          <label><input type="radio" name="role" value="producer"><span><span class="role-emoji">&#127959;&#65039;</span>Producer<br><small style="font-weight:400;color:var(--grey-dark);">List and manage my APIs</small></span></label>
         </div>
+      </fieldset>
 
-        <div class="field">
-          <label for="reg-last">Last name</label>
-          <input type="text" id="reg-last" required>
-        </div>
+      <h2 style="font-size:1.3rem;margin-top:1.6em;margin-bottom:0.6em;">Create your password</h2>
 
-        <div class="field">
-          <label for="reg-email">Email address</label>
-          <input type="email" id="reg-email" required>
-        </div>
+      <div class="field">
+        <label for="reg-password">Password</label>
+        <span class="hint">Your password must be at least 12 characters long.</span>
+        <input type="password" id="reg-password" required minlength="12">
+      </div>
 
-        <div class="field">
-          <label for="reg-org">Organisation or team</label>
-          <span class="hint">For example: HMCTS DTS, Ministry of Justice Digital</span>
-          <input type="text" id="reg-org" required>
-        </div>
+      <div class="field">
+        <label for="reg-password-confirm">Confirm your password</label>
+        <input type="password" id="reg-password-confirm" required minlength="12">
+      </div>
 
-        <fieldset>
-          <legend>I am registering as&hellip;</legend>
-          <div class="role-pick">
-            <label><input type="radio" name="role" value="consumer" required><span><span class="role-emoji">&#128105;&#8205;&#128187;</span>Consumer<br><small style="font-weight:400;color:var(--grey-dark);">Find and use existing APIs</small></span></label>
-            <label><input type="radio" name="role" value="producer"><span><span class="role-emoji">&#127959;&#65039;</span>Producer<br><small style="font-weight:400;color:var(--grey-dark);">List and manage my APIs</small></span></label>
-          </div>
-        </fieldset>
+      <button type="submit" class="btn btn-start">Create</button>
+    </form>
 
-        <h3 style="font-size:1.15rem;margin-top:1.4em;margin-bottom:0.5em;">Create your password</h3>
-
-        <div class="field">
-          <label for="reg-password">Password</label>
-          <span class="hint">Your password must be at least 12 characters long.</span>
-          <input type="password" id="reg-password" required minlength="12">
-        </div>
-
-        <div class="field">
-          <label for="reg-password-confirm">Confirm your password</label>
-          <input type="password" id="reg-password-confirm" required minlength="12">
-        </div>
-
-        <button type="submit" class="btn btn-start" style="width:100%;justify-content:center;">Create</button>
-      </form>
-
-      <div class="confirmation" id="register-confirmation">
-        <div class="banner">
-          <h2>Account created</h2>
-          <p>This is a demo &mdash; no account has actually been created.</p>
-          <a class="btn btn-primary" href="index.html">Return to homepage</a>
-        </div>
+    <div class="confirmation" id="register-confirmation">
+      <div class="banner">
+        <h1>Account created</h1>
+        <p>This is a demo &mdash; no account has actually been created.</p>
+        <a class="btn btn-primary" href="index.html">Return to homepage</a>
       </div>
     </div>
+
   </div>
 </main>
 

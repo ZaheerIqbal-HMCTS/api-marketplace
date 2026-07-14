@@ -10,51 +10,51 @@
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
-<main id="main-content" class="split-auth">
-  <div class="split-auth-brand">
-    <a class="crest" href="index.html"><span class="logo-rule" aria-hidden="true"></span><!-- Insert official HMCTS crest artwork here once the licensed logo file is available --><span>HMCTS API Marketplace</span></a>
-    <h1>Build with confidence on justice sector data</h1>
-    <p>Your developer account gives you access to request APIs, manage listings, and take part in the community &mdash; all in one place.</p>
+<div class="top-bar">
+  <div class="wrap">
+    <a class="crest" href="index.html">
+      <img src="assets/hmcts-logo-black.png" alt="HM Courts &amp; Tribunals Service" class="logo-img">
+    </a>
   </div>
+</div>
 
-  <div class="split-auth-form">
-    <div class="split-auth-form-inner">
-      <h2>Sign in</h2>
+<main id="main-content" class="centered-auth">
+  <div class="centered-auth-inner">
+    <h1>Sign in</h1>
 
-      <div class="auth-callout">
-        <div class="auth-callout-tab">HMCTS API Marketplace account</div>
-        <div class="auth-callout-body">
-          <p>If you do not already have an account, <a href="register.html">create a developer account</a>.</p>
-        </div>
+    <div class="auth-callout">
+      <div class="auth-callout-tab">HMCTS API Marketplace account</div>
+      <div class="auth-callout-body">
+        <p>If you do not already have an account, <a href="register.html">create a developer account</a>.</p>
       </div>
-
-      <form data-mock-submit="signin-confirmation" novalidate id="signin-form">
-        <div class="error-summary"><h2>There is a problem</h2><p>Enter your email address and password.</p></div>
-
-        <div class="field">
-          <label for="signin-email">Email address</label>
-          <input type="email" id="signin-email" required>
-        </div>
-
-        <div class="field" style="display:flex;align-items:center;gap:10px;">
-          <input type="checkbox" id="remember-me" style="width:auto;">
-          <label for="remember-me" style="margin:0;font-weight:400;">Remember me</label>
-        </div>
-
-        <div class="field">
-          <label for="signin-password">Password</label>
-          <input type="password" id="signin-password" required>
-        </div>
-
-        <button type="submit" class="btn btn-start" style="width:100%;justify-content:center;">Sign in</button>
-      </form>
-
-      <div class="confirmation" id="signin-confirmation">
-        <div class="banner"><p>Signed in. This is a demo &mdash; no account has actually been created or accessed.</p></div>
-      </div>
-
-      <p style="margin-top:1.4em;text-align:center;"><a href="#">Forgotten password?</a></p>
     </div>
+
+    <form data-mock-submit="signin-confirmation" novalidate id="signin-form">
+      <div class="error-summary"><h2>There is a problem</h2><p>Enter your email address and password.</p></div>
+
+      <div class="field">
+        <label for="signin-email">Email address</label>
+        <input type="email" id="signin-email" required>
+      </div>
+
+      <div class="field" style="display:flex;align-items:center;gap:10px;">
+        <input type="checkbox" id="remember-me" style="width:auto;">
+        <label for="remember-me" style="margin:0;font-weight:400;">Remember me</label>
+      </div>
+
+      <div class="field">
+        <label for="signin-password">Password</label>
+        <input type="password" id="signin-password" required>
+      </div>
+
+      <button type="submit" class="btn btn-start" style="width:100%;justify-content:center;">Sign in</button>
+    </form>
+
+    <div class="confirmation" id="signin-confirmation">
+      <div class="banner"><p>Signed in. This is a demo &mdash; no account has actually been created or accessed.</p></div>
+    </div>
+
+    <p style="margin-top:1.4em;text-align:center;"><a href="#">Forgotten password?</a></p>
   </div>
 </main>
 
