@@ -10,61 +10,51 @@
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
-<div class="auth-topbar">
-  <div class="wrap">
-    <a class="crest" href="index.html">
-      <svg class="mark" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-<path d="M16 2L28 7V15C28 22.5 22.8 27.8 16 30C9.2 27.8 4 22.5 4 15V7L16 2Z" stroke="#d9b25c" stroke-width="1.6" fill="none"/>
-<path d="M16 8V22M11 12H21M11 18H21" stroke="#fff" stroke-width="1.4"/>
-</svg>
-      <span>HMCTS API Marketplace developer account</span>
-    </a>
+<main id="main-content" class="split-auth">
+  <div class="split-auth-brand">
+    <a class="crest" href="index.html"><span class="logo-rule" aria-hidden="true"></span><!-- Insert official HMCTS crest artwork here once the licensed logo file is available --><span>HMCTS API Marketplace</span></a>
+    <h1>Build with confidence on justice sector data</h1>
+    <p>Your developer account gives you access to request APIs, manage listings, and take part in the community &mdash; all in one place.</p>
   </div>
-</div>
 
-<main id="main-content" class="auth-page">
-  <div class="wrap auth-wrap">
+  <div class="split-auth-form">
+    <div class="split-auth-form-inner">
+      <h2>Sign in</h2>
 
-    <h1>Sign in or create a<br>developer account</h1>
-
-    <div class="auth-callout">
-      <div class="auth-callout-tab">HMCTS API Marketplace account</div>
-      <div class="auth-callout-body">
-        <p>Your HMCTS API Marketplace account lets you sign in to request API access, manage your API listings, and take part in the developer community.</p>
-        <p>If you do not already have one, <a href="register.html">create a developer account</a>.</p>
+      <div class="auth-callout">
+        <div class="auth-callout-tab">HMCTS API Marketplace account</div>
+        <div class="auth-callout-body">
+          <p>If you do not already have an account, <a href="register.html">create a developer account</a>.</p>
+        </div>
       </div>
+
+      <form data-mock-submit="signin-confirmation" novalidate id="signin-form">
+        <div class="error-summary"><h2>There is a problem</h2><p>Enter your email address and password.</p></div>
+
+        <div class="field">
+          <label for="signin-email">Email address</label>
+          <input type="email" id="signin-email" required>
+        </div>
+
+        <div class="field" style="display:flex;align-items:center;gap:10px;">
+          <input type="checkbox" id="remember-me" style="width:auto;">
+          <label for="remember-me" style="margin:0;font-weight:400;">Remember me</label>
+        </div>
+
+        <div class="field">
+          <label for="signin-password">Password</label>
+          <input type="password" id="signin-password" required>
+        </div>
+
+        <button type="submit" class="btn btn-start" style="width:100%;justify-content:center;">Sign in</button>
+      </form>
+
+      <div class="confirmation" id="signin-confirmation">
+        <div class="banner"><p>Signed in. This is a demo &mdash; no account has actually been created or accessed.</p></div>
+      </div>
+
+      <p style="margin-top:1.4em;text-align:center;"><a href="#">Forgotten password?</a></p>
     </div>
-
-    <form data-mock-submit="signin-confirmation" novalidate id="signin-form">
-      <div class="error-summary"><h2>There is a problem</h2><p>Enter your email address and password.</p></div>
-
-      <div class="field">
-        <label for="signin-email">Email address</label>
-        <input type="email" id="signin-email" required>
-      </div>
-
-      <div class="field" style="display:flex;align-items:center;gap:10px;">
-        <input type="checkbox" id="remember-me" style="width:auto;">
-        <label for="remember-me" style="margin:0;font-weight:400;">Remember me</label>
-      </div>
-
-      <div class="field">
-        <label for="signin-password">Password</label>
-        <input type="password" id="signin-password" required>
-      </div>
-
-      <div class="auth-btn-row">
-        <button type="submit" class="btn btn-start">Sign in</button>
-        <a class="btn btn-dark" href="register.html">Create a developer account</a>
-      </div>
-    </form>
-
-    <div class="confirmation" id="signin-confirmation">
-      <div class="banner"><p>Signed in. This is a demo &mdash; no account has actually been created or accessed.</p></div>
-    </div>
-
-    <p style="margin-top:1.4em;"><a href="#">Forgotten password?</a></p>
-
   </div>
 </main>
 

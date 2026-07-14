@@ -12,11 +12,7 @@
 <div class="top-bar">
   <div class="wrap">
     <a class="crest" href="index.html">
-      <svg class="mark" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-<path d="M16 2L28 7V15C28 22.5 22.8 27.8 16 30C9.2 27.8 4 22.5 4 15V7L16 2Z" stroke="#d9b25c" stroke-width="1.6" fill="none"/>
-<path d="M16 8V22M11 12H21M11 18H21" stroke="#fff" stroke-width="1.4"/>
-</svg>
-      <span>HM Courts &amp; Tribunals Service</span>
+      <img src="assets/hmcts-logo-black.png" alt="HM Courts &amp; Tribunals Service" class="logo-img">
     </a>
     <div class="top-bar-actions">
       <a href="api-catalogue.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg> Search</a>
@@ -48,105 +44,61 @@
   <div class="wrap">
     <h1>Documentation, guides and tutorials</h1>
     <p class="lede" style="color:var(--grey-dark);font-size:1.1rem;max-width:65ch;">Get best practice on designing, building, managing and documenting an integration with an HMCTS API.</p>
-    <p style="color:var(--grey-dark);margin-bottom:0;">Select a stage to find guidance for that part of your integration journey.</p>
 
-    <div class="detail-tabs" data-tabs role="tablist" style="margin-top:1.4em;">
-      <button class="active" data-target="tab-landscape" role="tab" aria-selected="true">Understand the justice landscape</button>
-<button class="" data-target="tab-prepare" role="tab" aria-selected="false">Prepare your integration</button>
-<button class="" data-target="tab-build" role="tab" aria-selected="false">Build your API integration</button>
-<button class="" data-target="tab-test" role="tab" aria-selected="false">Test your integration</button>
-<button class="" data-target="tab-golive" role="tab" aria-selected="false">Go live with your integration</button>
-    </div>
+    <div class="doc-layout">
+      <aside class="doc-stages">
+        <h2>Your integration journey</h2>
+        <ul id="doc-stage-list">
+          <li class="active" data-stage-id="landscape"><span class="stage-num">1</span>Understand the justice landscape</li>
+<li class="" data-stage-id="prepare"><span class="stage-num">2</span>Prepare your integration</li>
+<li class="" data-stage-id="build"><span class="stage-num">3</span>Build your API integration</li>
+<li class="" data-stage-id="test"><span class="stage-num">4</span>Test your integration</li>
+<li class="" data-stage-id="golive"><span class="stage-num">5</span>Go live with your integration</li>
+        </ul>
+      </aside>
 
-    <div style="padding-top:8px;">
-      <div id="tab-landscape" class="tab-panel active">
-    <div class="card-grid">
-      <div class="card" style="--chip:#1d70b8;">
-        <h3><a href="onboarding-guide.html" style="color:var(--ink);text-decoration:none;">Onboarding guide</a></h3>
-        <p>Learn what the Marketplace is, who it's for, and how consumers and producers get started.</p>
-        <a class="card-link" href="onboarding-guide.html">Read more &rsaquo;</a>
-      </div><div class="card" style="--chip:#4d2942;">
+      <div class="doc-resources">
+        <p style="color:var(--grey-dark);margin-top:0;">Guidance and resources for every stage of your integration:</p>
+        <div class="card-grid">
+          <div class="card" style="--chip:#0096d6;">
+        <h3><a href="resources-a-z.html" style="color:var(--ink);text-decoration:none;">A to Z of developer resources</a></h3>
+        <p>Browse all developer resources in one place.</p>
+        <a class="card-link" href="resources-a-z.html">Read more &rsaquo;</a>
+      </div><div class="card" style="--chip:#724695;">
+        <h3><a href="building-software.html" style="color:var(--ink);text-decoration:none;">Building justice sector software</a></h3>
+        <p>Understand the principles of designing justice sector software for different court and tribunal settings.</p>
+        <a class="card-link" href="building-software.html">Read more &rsaquo;</a>
+      </div><div class="card" style="--chip:#f9ae00;">
         <h3><a href="case-studies.html" style="color:var(--ink);text-decoration:none;">API platform case studies</a></h3>
-        <p>See how other teams have integrated their software with HMCTS APIs.</p>
+        <p>Case studies of teams who have integrated their software with our APIs.</p>
         <a class="card-link" href="case-studies.html">Read more &rsaquo;</a>
-      </div><div class="card" style="--chip:#b7862d;">
+      </div><div class="card" style="--chip:#11a63c;">
         <h3><a href="glossary.html" style="color:var(--ink);text-decoration:none;">Glossary of developer terms</a></h3>
-        <p>Look up terminology used across the Marketplace.</p>
+        <p>Look up terminology we use in our API services.</p>
         <a class="card-link" href="glossary.html">Read more &rsaquo;</a>
+      </div><div class="card" style="--chip:#008c9d;">
+        <h3><a href="technology-introduction.html" style="color:var(--ink);text-decoration:none;">Introduction to justice sector technology</a></h3>
+        <p>Learn how digital technology works across HMCTS and the wider justice system.</p>
+        <a class="card-link" href="technology-introduction.html">Read more &rsaquo;</a>
+      </div><div class="card" style="--chip:#e9531d;">
+        <h3><a href="our-api-technologies.html" style="color:var(--ink);text-decoration:none;">Our API technologies</a></h3>
+        <p>See the technologies used to build HMCTS APIs.</p>
+        <a class="card-link" href="our-api-technologies.html">Read more &rsaquo;</a>
       </div>
-    </div>
-  </div>
-<div id="tab-prepare" class="tab-panel">
-    <div class="card-grid">
-      <div class="card" style="--chip:#1d70b8;">
-        <h3><a href="onboarding-guide.html#s3" style="color:var(--ink);text-decoration:none;">Onboarding guide</a></h3>
-        <p>Step-by-step onboarding for consumers, including confirming your use case and arranging a Data Sharing Agreement.</p>
-        <a class="card-link" href="onboarding-guide.html#s3">Read more &rsaquo;</a>
-      </div><div class="card" style="--chip:#4d2942;">
-        <h3><a href="data-governance.html" style="color:var(--ink);text-decoration:none;">Data governance standards</a></h3>
-        <p>Understand the legal and regulatory obligations that apply before you request access.</p>
-        <a class="card-link" href="data-governance.html">Read more &rsaquo;</a>
-      </div><div class="card" style="--chip:#b7862d;">
-        <h3><a href="consumer-guidance.html" style="color:var(--ink);text-decoration:none;">Consumer guidance</a></h3>
-        <p>Understand what you need before requesting access, and how to make a strong access request.</p>
-        <a class="card-link" href="consumer-guidance.html">Read more &rsaquo;</a>
+        </div>
       </div>
-    </div>
-  </div>
-<div id="tab-build" class="tab-panel">
-    <div class="card-grid">
-      <div class="card" style="--chip:#1d70b8;">
-        <h3><a href="api-catalogue.html" style="color:var(--ink);text-decoration:none;">API Catalogue</a></h3>
-        <p>Browse available APIs, read plain-English descriptions, and view technical documentation.</p>
-        <a class="card-link" href="api-catalogue.html">Read more &rsaquo;</a>
-      </div><div class="card" style="--chip:#4d2942;">
-        <h3><a href="producer-standards.html" style="color:var(--ink);text-decoration:none;">Producer standards</a></h3>
-        <p>Technical requirements for publishing an API, including OpenAPI specs, authentication and error responses.</p>
-        <a class="card-link" href="producer-standards.html">Read more &rsaquo;</a>
-      </div><div class="card" style="--chip:#b7862d;">
-        <h3><a href="getting-started.html" style="color:var(--ink);text-decoration:none;">Getting started</a></h3>
-        <p>A step-by-step guide to designing and building your integration.</p>
-        <a class="card-link" href="getting-started.html">Read more &rsaquo;</a>
-      </div>
-    </div>
-  </div>
-<div id="tab-test" class="tab-panel">
-    <div class="card-grid">
-      <div class="card" style="--chip:#1d70b8;">
-        <h3><a href="consumer-guidance.html#g3" style="color:var(--ink);text-decoration:none;">Consumer guidance</a></h3>
-        <p>Rate limits, sandbox testing, authentication and error handling guidance.</p>
-        <a class="card-link" href="consumer-guidance.html#g3">Read more &rsaquo;</a>
-      </div><div class="card" style="--chip:#4d2942;">
-        <h3><a href="getting-started.html#s5" style="color:var(--ink);text-decoration:none;">Getting started</a></h3>
-        <p>Use the sandbox environment to test your integration before requesting production access.</p>
-        <a class="card-link" href="getting-started.html#s5">Read more &rsaquo;</a>
-      </div><div class="card" style="--chip:#b7862d;">
-        <h3><a href="api-catalogue.html" style="color:var(--ink);text-decoration:none;">API Catalogue</a></h3>
-        <p>Check the sandbox details and try-it documentation for the API you're integrating with.</p>
-        <a class="card-link" href="api-catalogue.html">Read more &rsaquo;</a>
-      </div>
-    </div>
-  </div>
-<div id="tab-golive" class="tab-panel">
-    <div class="card-grid">
-      <div class="card" style="--chip:#1d70b8;">
-        <h3><a href="request-api.html" style="color:var(--ink);text-decoration:none;">Request API access</a></h3>
-        <p>Submit a production access request once your integration has been tested in sandbox.</p>
-        <a class="card-link" href="request-api.html">Read more &rsaquo;</a>
-      </div><div class="card" style="--chip:#4d2942;">
-        <h3><a href="publish-api.html" style="color:var(--ink);text-decoration:none;">Publish an API</a></h3>
-        <p>Ready to list your own API? Submit it for review once it meets the Producer Standards.</p>
-        <a class="card-link" href="publish-api.html">Read more &rsaquo;</a>
-      </div><div class="card" style="--chip:#b7862d;">
-        <h3><a href="getting-started.html#s7" style="color:var(--ink);text-decoration:none;">Getting started</a></h3>
-        <p>Final steps for getting your software live, including production credentials.</p>
-        <a class="card-link" href="getting-started.html#s7">Read more &rsaquo;</a>
-      </div>
-    </div>
-  </div>
     </div>
   </div>
 </section>
+
+<script>
+document.querySelectorAll('#doc-stage-list li').forEach(function (li) {
+  li.addEventListener('click', function () {
+    document.querySelectorAll('#doc-stage-list li').forEach(function (l) { l.classList.remove('active'); });
+    li.classList.add('active');
+  });
+});
+</script>
 
 </main>
 

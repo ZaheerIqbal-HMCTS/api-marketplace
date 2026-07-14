@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>API Catalogue — HMCTS API Marketplace</title>
-<meta name="description" content="Discover, explore and integrate with HMCTS APIs — published live on the HMCTS AMP Catalog.">
+<title>Our API technologies — HMCTS API Marketplace</title>
+<meta name="description" content="See the technologies used to build HMCTS APIs.">
 <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
@@ -36,47 +36,31 @@
     <span>This is a new service &mdash; <a href="request-new-api.html">give your feedback</a> to help us improve it.</span>
   </div>
 </div>
-<div class="breadcrumbs"><div class="wrap"><ol><li><a href="index.html">HMCTS</a></li><li>API Catalogue</li></ol></div></div>
+<div class="breadcrumbs"><div class="wrap"><ol><li><a href="index.html">HMCTS</a></li><li><a href="documentation.html">Documentation</a></li><li>Our API technologies</li></ol></div></div>
 
 <main id="main-content">
 
-<section class="block">
+<section class="block" style="padding-bottom:0;">
   <div class="wrap">
-    <h1>API Catalogue</h1>
-    <p class="lede" style="color:var(--grey-dark);font-size:1.1rem;max-width:70ch;margin-bottom:1.8em;">
-      Discover, explore and integrate with HMCTS APIs. The catalogue is published and kept in sync
-      live on GitHub, direct from each API&rsquo;s OpenAPI specification.
-    </p>
+    <h1>Our API technologies</h1>
+    <p class="lede" style="color:var(--grey-dark);font-size:1.1rem;max-width:65ch;">See the technologies used to build and publish HMCTS APIs.</p>
 
-    <div class="feature-row" style="grid-template-columns: 1fr 1fr; border-bottom:none;">
-      <div>
-        <h2>HMCTS AMP Catalog</h2>
-        <p>Browse the full, up-to-date list of published HMCTS APIs &mdash; search by name, view endpoint documentation, and check each API&rsquo;s current version, all kept in sync automatically with its OpenAPI specification.</p>
-        <a class="btn btn-primary" href="https://hmcts.github.io/amp-catalog/" target="_blank" rel="noopener">Browse the live catalogue &rsaquo;</a>
+    <div class="content-layout">
+      <div class="prose">
+        <div class="def-grid">
+          <div class="def-item"><h4>REST</h4><p>All HMCTS APIs on the Marketplace are RESTful HTTP APIs returning JSON.</p></div><div class="def-item"><h4>OpenAPI 3.x</h4><p>Every published API has a machine-readable OpenAPI specification, which powers the documentation shown in the API Catalogue.</p></div><div class="def-item"><h4>OAuth 2.0 with JWT bearer tokens</h4><p>The standard authentication method across all Marketplace APIs. See the Glossary for more detail.</p></div><div class="def-item"><h4>GitHub and GitHub Pages</h4><p>Producer teams host their OpenAPI specification and documentation in a public GitHub repository, published via GitHub Pages, in line with the Producer Standards.</p></div><div class="def-item"><h4>GOV.UK Design System conventions</h4><p>The Marketplace follows GOV.UK-style design patterns (forms, error handling, typography) that will be familiar from other government digital services.</p></div><div class="def-item"><h4>Spectral linting</h4><p>Producer API specifications are linted against the standard OAS3 ruleset before being listed, to ensure documentation quality and consistency.</p></div>
+        </div>
       </div>
-      <div class="graphic tint-maroon">
-        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <g stroke="#724695" stroke-width="1.5">
-            <polygon points="60,10 100,32 100,76 60,98 20,76 20,32" fill="#D9CFE8"/>
-            <polygon points="140,10 180,32 180,76 140,98 100,76 100,32" fill="#724695"/>
-            <polygon points="60,98 100,120 100,164 60,186 20,164 20,120" fill="#0096d6"/>
-            <polygon points="140,98 180,120 180,164 140,186 100,164 100,120" fill="#D9CFE8"/>
-          </g>
-        </svg>
-      </div>
+
+      <aside class="side">
+        <div class="side-card">
+          <h3>Related</h3>
+          <p><a href="producer-standards.html">Producer standards</a></p>
+          <p><a href="glossary.html">Glossary of developer terms</a></p>
+          <p><a href="architecture.html">HMCTS architecture</a></p>
+        </div>
+      </aside>
     </div>
-
-    <p style="color:var(--grey-mid); font-size:0.9rem; margin-top:0.5em;">
-      Opens in a new tab at <strong>hmcts.github.io/amp-catalog</strong>.
-    </p>
-  </div>
-</section>
-
-<section class="block alt">
-  <div class="wrap" style="text-align:center;">
-    <h2 class="section-title">Can&rsquo;t find what you need?</h2>
-    <p class="section-intro" style="margin:0 auto 1.4em;">Tell us what data or capability you&rsquo;re looking for and we&rsquo;ll review it for discovery.</p>
-    <a class="btn btn-primary" href="request-new-api.html">Request a new API</a>
   </div>
 </section>
 
