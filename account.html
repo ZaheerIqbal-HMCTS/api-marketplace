@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My developer account — HMCTS API Marketplace</title>
+<meta name="description" content="Manage your HMCTS API Marketplace developer account.">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div class="top-bar">
+  <div class="wrap">
+    <a class="crest" href="index.html">
+      <img src="assets/hmcts-logo-black.png" alt="HM Courts &amp; Tribunals Service" class="logo-img">
+    </a>
+  </div>
+</div>
+
+<header class="account-hero">
+  <div class="wrap account-hero-top">
+    <span class="account-hero-label">Developer account</span>
+    <div class="account-hero-user">
+      <span id="account-email">&hellip;</span>
+      <a href="#" id="sign-out-link">Sign out</a>
+    </div>
+  </div>
+  <nav class="account-subnav">
+    <div class="wrap">
+      <a href="my-applications.html">Environment access</a>
+      <a href="onboarding-guide.html">Digital onboarding service</a>
+      <a href="producer-standards.html">API Producer zone</a>
+      <a href="api-catalogue.html">API &amp; Integration catalogue</a>
+      <a href="community.html">Developer community</a>
+    </div>
+  </nav>
+  <div class="wrap account-hero-body">
+    <h1>My developer account</h1>
+    <p>Use your developer account to access everything you need to integrate with HMCTS APIs for testing, assurance, and production purposes.</p>
+  </div>
+</header>
+
+<main id="main-content">
+  <section class="block">
+    <div class="wrap account-columns">
+      <div class="account-column" style="--chip:#0096d6;">
+        <h2>Introduction</h2>
+        <ul>
+          <li><a href="getting-started.html">Get started with our APIs</a></li>
+          <li><a href="api-catalogue.html">API &amp; Integration catalogue</a></li>
+          <li><a href="request-new-api.html">Request a new API</a></li>
+        </ul>
+      </div>
+      <div class="account-column" style="--chip:#724695;">
+        <h2>Access &amp; onboarding</h2>
+        <ul>
+          <li><a href="onboarding-guide.html">Onboarding guide</a></li>
+          <li><a href="request-api.html">Request API access</a></li>
+          <li><a href="publish-api.html">Publish an API</a></li>
+        </ul>
+      </div>
+      <div class="account-column" style="--chip:#f9ae00;">
+        <h2>Support</h2>
+        <ul>
+          <li><a href="community.html">Developer community</a></li>
+          <li><a href="help-and-support.html">Help and support</a></li>
+          <li><a href="contact.html">Report an issue</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="auth-footer">
+  <div class="wrap">
+    <nav>
+      <a href="onboarding-guide.html">Information and guidance</a>
+      <a href="#">Accessibility</a>
+      <a href="#">Terms of use</a>
+      <a href="help-and-support.html">Help and support</a>
+    </nav>
+    <span>&copy; Crown copyright</span>
+  </div>
+</footer>
+
+<script>
+  // Change this to wherever the auth-server is actually running/deployed.
+  const API_BASE = "https://hmcts-api-marketplace-auth.onrender.com";
+
+  (async function () {
+    try {
+      const res = await fetch(API_BASE + '/api/me', { credentials: 'include' });
+      if (!res.ok) {
+        window.location.href = 'sign-in.html';
+        return;
+      }
+      const data = await res.json();
+      document.getElementById('account-email').textContent = data.user.email;
+    } catch (err) {
+      window.location.href = 'sign-in.html';
+    }
+  })();
+
+  document.getElementById('sign-out-link').addEventListener('click', async function (e) {
+    e.preventDefault();
+    try {
+      await fetch(API_BASE + '/api/logout', { method: 'POST', credentials: 'include' });
+    } catch (err) {
+      // Ignore network errors here - we're signing out either way.
+    }
+    window.location.href = 'sign-in.html';
+  });
+</script>
+</body>
+</html>

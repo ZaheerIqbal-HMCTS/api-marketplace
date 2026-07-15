@@ -376,18 +376,18 @@ form.hidden-after-submit{ display:none; }
 .auth-benefit-icon{ flex:none; width:26px; height:26px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:700; }
 
 /* My developer account dashboard */
-.account-hero{ background: var(--blue); color:#fff; }
+.account-hero{ background: var(--blue-dark); color:#fff; border-bottom:4px solid var(--blue); }
 .account-hero-top{ display:flex; justify-content:space-between; align-items:center; padding:14px 0; }
 .account-hero-label{ font-weight:700; font-size:1.1rem; }
 .account-hero-user{ display:flex; align-items:center; gap:20px; font-size:0.95rem; }
 .account-hero-user a{ color:#fff; font-weight:700; text-decoration:underline; }
-.account-subnav{ background: var(--blue-dark); }
+.account-subnav{ background: var(--black); }
 .account-subnav .wrap{ display:flex; gap:28px; flex-wrap:wrap; padding:12px 0; }
 .account-subnav a{ color:#fff; font-size:0.92rem; font-weight:600; text-decoration:none; opacity:0.92; }
 .account-subnav a:hover{ text-decoration:underline; opacity:1; }
 .account-hero-body{ padding:44px 0 52px; }
 .account-hero-body h1{ font-size:2.4rem; color:#fff; margin-bottom:0.4em; }
-.account-hero-body p{ color:#eaf6fd; max-width:70ch; font-size:1.15rem; margin:0; }
+.account-hero-body p{ color:#fff; max-width:70ch; font-size:1.15rem; margin:0; }
 .account-columns{ display:grid; grid-template-columns: repeat(3,1fr); gap:24px; }
 .account-column{ background:#fff; border:1px solid var(--border-light); border-top:4px solid var(--chip, var(--blue)); padding:26px; }
 .account-column h2{ font-size:1.25rem; margin-bottom:0.8em; }
