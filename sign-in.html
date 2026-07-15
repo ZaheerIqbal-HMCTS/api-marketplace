@@ -61,8 +61,8 @@
         </div>
       </div>
 
-      <form data-mock-submit="signin-confirmation" novalidate id="signin-form">
-        <div class="error-summary"><h2>There is a problem</h2><p>Enter your email address and password.</p></div>
+      <form novalidate id="signin-form">
+        <div class="error-summary" id="signin-error"><h2>There is a problem</h2><p id="signin-error-text">Enter your email address and password.</p></div>
 
         <div class="field">
           <label for="signin-email">Email address</label>
@@ -83,7 +83,7 @@
       </form>
 
       <div class="confirmation" id="signin-confirmation">
-        <div class="banner"><p>Signed in. This is a demo &mdash; no account has actually been created or accessed.</p></div>
+        <div class="banner"><p id="signin-success-text">Signed in.</p></div>
       </div>
 
       <p style="margin-top:1.4em;text-align:center;"><a href="#">Forgotten password?</a></p>
@@ -91,6 +91,54 @@
   </div>
 </main>
 
-<script src="assets/scripts.js"></script>
+<script>
+  // Change this to wherever the auth-server is actually running/deployed.
+  // See auth-server/README.md for local setup and deployment options.
+  const API_BASE = "https://hmcts-api-marketplace-auth.onrender.com";
+
+  const form = document.getElementById('signin-form');
+  const errorBox = document.getElementById('signin-error');
+  const errorText = document.getElementById('signin-error-text');
+  const confirmation = document.getElementById('signin-confirmation');
+  const successText = document.getElementById('signin-success-text');
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    errorBox.classList.remove('show');
+
+    const email = document.getElementById('signin-email').value.trim();
+    const password = document.getElementById('signin-password').value;
+
+    if (!email || !password) {
+      errorText.textContent = 'Enter your email address and password.';
+      errorBox.classList.add('show');
+      return;
+    }
+
+    try {
+      const res = await fetch(API_BASE + '/api/login', {
+        method: 'POST',
+        credentials: 'include',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+      });
+      const data = await res.json();
+
+      if (!res.ok) {
+        errorText.textContent = data.error || 'Something went wrong. Please try again.';
+        errorBox.classList.add('show');
+        return;
+      }
+
+      successText.textContent = 'Signed in as ' + data.user.firstName + ' ' + data.user.lastName + '.';
+      form.style.display = 'none';
+      confirmation.classList.add('show');
+    } catch (err) {
+      errorText.textContent =
+        'Could not reach the sign-in server at ' + API_BASE + '. Is auth-server running? See auth-server/README.md.';
+      errorBox.classList.add('show');
+    }
+  });
+</script>
 </body>
 </html>

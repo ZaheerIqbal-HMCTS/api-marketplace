@@ -55,8 +55,8 @@
       <div class="accent-bar"></div>
       <p style="color:var(--grey-dark);font-size:0.98rem;">You need to provide your details to create an account. For more information on why we collect your information, see our <a href="#">privacy policy</a>.</p>
 
-      <form data-mock-submit="register-confirmation" novalidate>
-        <div class="error-summary"><h2>There is a problem</h2><p>Please fill in all required fields.</p></div>
+      <form novalidate id="register-form">
+        <div class="error-summary" id="register-error"><h2>There is a problem</h2><p id="register-error-text">Please fill in all required fields.</p></div>
 
         <div class="field">
           <label for="reg-first">First name</label>
@@ -106,7 +106,7 @@
       <div class="confirmation" id="register-confirmation">
         <div class="banner">
           <h2>Account created</h2>
-          <p>This is a demo &mdash; no account has actually been created.</p>
+          <p id="register-success-text">Your account has been created.</p>
           <a class="btn btn-primary" href="index.html">Return to homepage</a>
         </div>
       </div>
@@ -114,6 +114,72 @@
   </div>
 </main>
 
-<script src="assets/scripts.js"></script>
+<script>
+  // Change this to wherever the auth-server is actually running/deployed.
+  // See auth-server/README.md for local setup and deployment options.
+  const API_BASE = "https://hmcts-api-marketplace-auth.onrender.com";
+
+  const form = document.getElementById('register-form');
+  const errorBox = document.getElementById('register-error');
+  const errorText = document.getElementById('register-error-text');
+  const confirmation = document.getElementById('register-confirmation');
+  const successText = document.getElementById('register-success-text');
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    errorBox.classList.remove('show');
+
+    const firstName = document.getElementById('reg-first').value.trim();
+    const lastName = document.getElementById('reg-last').value.trim();
+    const email = document.getElementById('reg-email').value.trim();
+    const organisation = document.getElementById('reg-org').value.trim();
+    const roleInput = document.querySelector('input[name="role"]:checked');
+    const password = document.getElementById('reg-password').value;
+    const passwordConfirm = document.getElementById('reg-password-confirm').value;
+
+    if (!firstName || !lastName || !email || !roleInput || !password) {
+      errorText.textContent = 'Please fill in all required fields.';
+      errorBox.classList.add('show');
+      return;
+    }
+    if (password.length < 12) {
+      errorText.textContent = 'Your password must be at least 12 characters long.';
+      errorBox.classList.add('show');
+      return;
+    }
+    if (password !== passwordConfirm) {
+      errorText.textContent = 'Your passwords do not match.';
+      errorBox.classList.add('show');
+      return;
+    }
+
+    try {
+      const res = await fetch(API_BASE + '/api/register', {
+        method: 'POST',
+        credentials: 'include',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName, lastName, email, organisation,
+          role: roleInput.value, password,
+        }),
+      });
+      const data = await res.json();
+
+      if (!res.ok) {
+        errorText.textContent = data.error || 'Something went wrong. Please try again.';
+        errorBox.classList.add('show');
+        return;
+      }
+
+      successText.textContent = 'Welcome, ' + data.user.firstName + ' — your account has been created.';
+      form.style.display = 'none';
+      confirmation.classList.add('show');
+    } catch (err) {
+      errorText.textContent =
+        'Could not reach the registration server at ' + API_BASE + '. Is auth-server running? See auth-server/README.md.';
+      errorBox.classList.add('show');
+    }
+  });
+</script>
 </body>
 </html>
