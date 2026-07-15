@@ -121,4 +121,37 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  // Site-wide "am I signed in?" check, reflected in the header nav.
+  // Runs on every regular page (not the auth pages themselves, which have
+  // their own logic) so being signed in is visible no matter where you are.
+  var navAuthLink = document.getElementById('nav-auth-link');
+  if (navAuthLink) {
+    var AUTH_API_BASE = 'https://hmcts-api-marketplace-auth.onrender.com';
+    fetch(AUTH_API_BASE + '/api/me', { credentials: 'include' })
+      .then(function (res) { return res.ok ? res.json() : null; })
+      .then(function (data) {
+        if (!data) return; // not signed in - leave the link as "Sign in"
+
+        navAuthLink.textContent = 'My account (' + data.user.firstName + ')';
+        navAuthLink.setAttribute('href', 'account.html');
+
+        var signOutLi = document.createElement('li');
+        var signOutLink = document.createElement('a');
+        signOutLink.href = '#';
+        signOutLink.textContent = 'Sign out';
+        signOutLink.addEventListener('click', function (e) {
+          e.preventDefault();
+          fetch(AUTH_API_BASE + '/api/logout', { method: 'POST', credentials: 'include' })
+            .catch(function () {})
+            .then(function () { window.location.reload(); });
+        });
+        signOutLi.appendChild(signOutLink);
+        navAuthLink.closest('li').insertAdjacentElement('afterend', signOutLi);
+      })
+      .catch(function () {
+        // Auth server unreachable (e.g. still waking up on Render's free tier) -
+        // fail quietly and just leave the link as "Sign in".
+      });
+  }
+
 });
