@@ -507,13 +507,20 @@ form.hidden-after-submit{ display:none; }
 /* Collapsible onboarding step sections */
 .onboarding-toggle{ margin: 0.6em 0 1.6em; }
 .onboarding-toggle summary{
-  list-style:none; cursor:pointer; display:inline-flex; align-items:center; gap:8px;
+  list-style:none; cursor:pointer; display:inline-flex; align-items:center; gap:14px;
   background: var(--chip-tint, var(--blue-tint)); border: 1px solid var(--chip, var(--blue)); color: var(--chip, var(--blue-dark));
-  font-weight:700; padding: 10px 18px; font-size:0.98rem;
+  font-weight:700; padding: 10px 18px; font-size:0.98rem; position:relative;
 }
 .onboarding-toggle summary::-webkit-details-marker{ display:none; }
-.onboarding-toggle summary::before{ content:"+"; font-size:1.1rem; font-weight:700; }
-.onboarding-toggle[open] summary::before{ content:"\\2212"; }
+.onboarding-toggle .toggle-icon{ position:relative; width:14px; height:14px; flex:none; }
+.onboarding-toggle .toggle-icon::before,
+.onboarding-toggle .toggle-icon::after{
+  content:""; position:absolute; top:50%; left:50%; background: currentColor;
+  transform: translate(-50%, -50%);
+}
+.onboarding-toggle .toggle-icon::before{ width:14px; height:2px; }
+.onboarding-toggle .toggle-icon::after{ width:2px; height:14px; }
+.onboarding-toggle[open] .toggle-icon::after{ display:none; }
 .onboarding-toggle[open] summary{ margin-bottom:1.2em; }
 .onboarding-toggle .steps{ margin-top: 0.4em; }
 
