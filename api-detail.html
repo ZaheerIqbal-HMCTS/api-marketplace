@@ -106,6 +106,8 @@
         </div>
 
         <aside class="side">
+          <a class="btn btn-start" id="request-api-btn" href="request-api.html" style="width:100%;justify-content:center;margin-bottom:1.4em;">Request to use this API</a>
+
           <div class="side-card">
             <h3>API information</h3>
             <div class="api-info-grid">
@@ -124,7 +126,6 @@
           </div>
           <div class="side-card">
             <h3>Links</h3>
-            <p><a href="request-api.html">Request access to this API &rsaquo;</a></p>
             <p><a href="consumer-guidance.html">Consumer guidance &rsaquo;</a></p>
           </div>
         </aside>
@@ -167,6 +168,7 @@
   document.getElementById('api-repo').textContent = data.repo;
   document.getElementById('api-version').textContent = data.version;
   document.getElementById('tryit-url').textContent = '  https://sandbox.api.hmcts.net/' + id + '/' + data.version;
+  document.getElementById('request-api-btn').setAttribute('href', 'request-api.html?api=' + encodeURIComponent(data.name));
 
   var endpointList = document.getElementById('endpoint-list');
   data.endpoints.forEach(function (ep) {
