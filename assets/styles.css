@@ -428,6 +428,7 @@ form.hidden-after-submit{ display:none; }
 .split-auth-form{ background:#fff; display:flex; align-items:center; justify-content:center; padding:56px 32px; }
 .split-auth-form-inner{ width:100%; max-width:420px; }
 .split-auth-form-inner h1{ font-size:2rem; margin-bottom:0.3em; }
+.accent-bar{ width:56px; height:5px; background: var(--chip, var(--green)); margin-bottom:1.4em; }
 .split-auth-form-inner .accent-bar{ width:56px; height:5px; background: var(--chip, var(--green)); margin-bottom:1.4em; }
 .split-auth-form-inner .field input[type=email],
 .split-auth-form-inner .field input[type=password],
